@@ -1,4 +1,4 @@
-# fruit_markit
+# fruits_market
 
 A new Flutter project.
 
