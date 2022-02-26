@@ -4,6 +4,9 @@ import 'package:fruit_markit/core/utilis/size_config.dart';
 import 'package:fruit_markit/core/widgets/customs_buttons.dart';
 import 'package:fruit_markit/features/on_boarding/presentation/widgets/custom_indicator.dart';
 import 'package:fruit_markit/features/on_boarding/presentation/widgets/custom_page_view.dart';
+import 'package:get/get.dart';
+
+import '../../../auth/presentation/pages/login/login_view.dart';
 
 class OnBoardingBody extends StatefulWidget {
   const OnBoardingBody({Key? key}) : super(key: key);
@@ -61,12 +64,19 @@ class _OnBoardingBodyState extends State<OnBoardingBody> {
             right: SizeConfig.defaultSize! * 10,
             bottom: SizeConfig.defaultSize! * 10,
             child: GestureDetector(
-              onTap: () {
-                pageController?.nextPage(
-                    duration: const Duration(milliseconds: 500),
-                    curve: Curves.easeIn);
-              },
+              onTap: () {},
               child: CustomGeneralButton(
+                  onTab: () {
+                    if (pageController!.page! < 2) {
+                      pageController?.nextPage(
+                          duration: const Duration(milliseconds: 500),
+                          curve: Curves.easeIn);
+                    } else {
+                      Get.to(() => const LoginView(),
+                          transition: Transition.rightToLeft,
+                          duration: const Duration(milliseconds: 500));
+                    }
+                  },
                   text: pageController!.hasClients
                       ? (pageController?.page == 2 ? 'Get Started' : 'Next')
                       : 'Next'),
