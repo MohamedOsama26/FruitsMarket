@@ -1,4 +1,4 @@
-import 'package:dots_indicator/dots_indicator.dart';
+// import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:fruit_markit/core/utilis/size_config.dart';
 import 'package:fruit_markit/core/widgets/customs_buttons.dart';
